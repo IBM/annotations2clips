@@ -1,0 +1,37 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.13.2
+    hooks:
+    # Run the linter.
+    -   id: ruff-check
+        types_or: [ python, pyi ]
+        args: [ --fix ]
+    # Run the formatter.
+    -   id: ruff-format
+        types_or: [ python, pyi ]
+-   repo: https://github.com/ibm/detect-secrets
+    rev: 0.13.1+ibm.62.dss
+    hooks:
+    -   id: detect-secrets # pragma: whitelist secret
+        args:
+            [
+                --baseline,
+                .secrets.baseline,
+                --use-all-plugins,
+                --fail-on-unaudited,
+            ]
+        additional_dependencies: [boxsdk<4]
+-   repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.8.22
+    hooks:
+    -   id: uv-export
+        args: ["--no-hashes", "--no-emit-project", "--frozen", "--output-file=requirements.txt", "--no-dev", "--all-extras"]

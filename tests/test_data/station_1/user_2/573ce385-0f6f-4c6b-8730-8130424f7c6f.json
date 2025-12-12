@@ -1,0 +1,187 @@
+{
+    "project": {
+        "pid": "573ce385-0f6f-4c6b-8730-8130424f7c6f",
+        "rev": "1",
+        "rev_timestamp": "1761300928282",
+        "pname": "",
+        "creator": "VGG Image Annotator (http://www.robots.ox.ac.uk/~vgg/software/via)",
+        "created": 1761300493276,
+        "vid_list": [
+            "1"
+        ]
+    },
+    "config": {
+        "file": {
+            "loc_prefix": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": ""
+            }
+        },
+        "ui": {
+            "file_content_align": "center",
+            "file_metadata_editor_visible": true,
+            "spatial_metadata_editor_visible": true,
+            "temporal_segment_metadata_editor_visible": true,
+            "spatial_region_label_attribute_id": "",
+            "gtimeline_visible_row_count": "4"
+        }
+    },
+    "attribute": {
+        "1": {
+            "aname": "Color",
+            "anchor_id": "FILE1_Z2_XY0",
+            "type": 4,
+            "desc": "Name of color",
+            "options": {
+                "0": "grey",
+                "1": "white",
+                "2": "red",
+                "3": "violet",
+                "4": "green",
+                "5": "blue",
+                "6": "not_used_test"
+            },
+            "default_option_id": ""
+        }
+    },
+    "file": {
+        "1": {
+            "fid": "1",
+            "fname": "test_video.mp4",
+            "type": 4,
+            "loc": 1,
+            "src": ""
+        }
+    },
+    "metadata": {
+        "1_fxBvvFOA": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                0,
+                49.695
+            ],
+            "xy": [],
+            "av": {
+                "1": "0"
+            }
+        },
+        "1_Qr0GoUAD": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                49.715,
+                74.145
+            ],
+            "xy": [],
+            "av": {
+                "1": "1"
+            }
+        },
+        "1_R02KIqGO": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                74.165,
+                115.065
+            ],
+            "xy": [],
+            "av": {
+                "1": "2"
+            }
+        },
+        "1_aZz3GesC": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                115.085,
+                178.015
+            ],
+            "xy": [],
+            "av": {
+                "1": "3"
+            }
+        },
+        "1_nihOnBKw": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                178.035,
+                225.345
+            ],
+            "xy": [],
+            "av": {
+                "1": "1"
+            }
+        },
+        "1_JD0nxpNx": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                225.365,
+                259.365
+            ],
+            "xy": [],
+            "av": {
+                "1": "0"
+            }
+        },
+        "1_z1t4oXXg": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                259.385,
+                271.345
+            ],
+            "xy": [],
+            "av": {
+                "1": "4"
+            }
+        },
+        "1_lVzAT15p": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                271.375,
+                368.365
+            ],
+            "xy": [],
+            "av": {
+                "1": "0"
+            }
+        },
+        "1_V75iItpk": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                368.385,
+                378.65857
+            ],
+            "xy": [],
+            "av": {
+                "1": "5"
+            }
+        },
+        "1_kGPv1Z7U": {
+            "vid": "1",
+            "flg": 0,
+            "z": [
+                378.679,
+                403.78833
+            ],
+            "xy": [],
+            "av": {
+                "1": "1"
+            }
+        }
+    },
+    "view": {
+        "1": {
+            "fid_list": [
+                "1"
+            ]
+        }
+    }
+}
