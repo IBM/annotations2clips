@@ -160,12 +160,12 @@ class VideoProcessor():
         for uid in tqdm(self.videos, desc="videos"):
             self.videos[uid]["clips"] = {}
             action_tracker_per_video: Dict[str, int] = {}
-            for action in sorted(self.annotations[uid]):
-                if action in action_tracker_per_video.keys():
-                    action_tracker_per_video[action] += 1
-                else:
-                    action_tracker_per_video[action] = 0
+            for action in self.annotations[uid]:
                 for t_segment in self.annotations[uid][action]:
+                    if action in action_tracker_per_video.keys():
+                        action_tracker_per_video[action] += 1
+                    else:
+                        action_tracker_per_video[action] = 0                    
                     len_t_segment = t_segment[1]-t_segment[0]
                     n_chunks = floor(len_t_segment/self.args.clip_length)
                     t_start = t_segment[0] + (len_t_segment - (n_chunks * self.args.clip_length))/2
