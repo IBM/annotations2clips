@@ -180,10 +180,10 @@ class VideoProcessor:
         stats_dict: Dict[str, int] = {}
 
         logger.info("Chunking videos into clips")
-        for uid in tqdm(sorted(self.videos), desc="videos"):
+        for uid in tqdm(sorted(self.videos, key=lambda s: s.encode("utf-8")), desc="videos"):
             self.videos[uid]["clips"] = {}
             action_tracker_per_video: Dict[str, int] = {}
-            for action in sorted(self.annotations[uid]):
+            for action in sorted(self.annotations[uid], key=lambda s: s.encode("utf-8")):
                 for t_segment in self.annotations[uid][action]:
                     if action in action_tracker_per_video.keys():
                         action_tracker_per_video[action] += 1
@@ -261,8 +261,8 @@ class VideoProcessor:
         out_file = Path(self.args.output_path, filename)
 
         with Path(out_file).open("w") as out:
-            for uid in self.videos:
-                for action in self.videos[uid]["clips"]:
+            for uid in sorted(self.videos, key=lambda s: s.encode("utf-8")):
+                for action in sorted(self.videos[uid]["clips"], key=lambda s: s.encode("utf-8")):
                     out.writelines([
                         f'{{"{video_key}:":"{clip_file}","{class_key}":"{action}"}}\n'
                         for clip_file in self.videos[uid]["clips"][action]
