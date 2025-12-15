@@ -261,8 +261,8 @@ class VideoProcessor:
         out_file = Path(self.args.output_path, filename)
 
         with Path(out_file).open("w") as out:
-            for uid in self.videos:
-                for action in self.videos[uid]["clips"]:
+            for uid in sorted(self.videos, key=lambda s: s.encode("utf-8")):
+                for action in sorted(self.videos[uid]["clips"], key=lambda s: s.encode("utf-8")):
                     out.writelines([
                         f'{{"{video_key}:":"{clip_file}","{class_key}":"{action}"}}\n'
                         for clip_file in self.videos[uid]["clips"][action]
