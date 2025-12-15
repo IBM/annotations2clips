@@ -1,3 +1,5 @@
+[![unit tests](https://github.com/IBM/annotations2clips/actions/workflows/tests.yml/badge.svg)](https://github.com/IBM/annotations2clips/actions/workflows/tests.yml)
+
 # Annotations2Clips
 
 A lightweight package to chunk videos into clips based on annotation files.
