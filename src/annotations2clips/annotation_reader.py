@@ -7,7 +7,7 @@ from typing import Dict, List, Tuple
 from loguru import logger
 
 
-class AnnotationReader():
+class AnnotationReader:
     """Annotation reader class."""
 
     action_dict: Dict[str, List[Tuple]] = {}
@@ -15,7 +15,7 @@ class AnnotationReader():
     def __init__(
         self,
         path_to_annotation_file: Path,
-        ):
+    ):
         """Initialize the annotation reader class."""
 
         self.path_to_annotation_file = path_to_annotation_file
@@ -43,14 +43,13 @@ class AnnotationReader():
         number_of_actions = 0
 
         for annotation in annotation_dict["metadata"]:
-            
             entry = annotation_dict["metadata"][annotation]
-            
+
             try:
                 _action = str(id_to_action_dict.get(entry["av"]["1"]))
             except Exception:
                 _action = str(entry["av"]["1"])
-            
+
             if len(entry["z"]) == 2:
                 _t_start = entry["z"][0]
                 _t_end = entry["z"][1]
@@ -62,6 +61,8 @@ class AnnotationReader():
 
             number_of_actions += 1
 
-        logger.info(f"Parsed {number_of_actions} actions from file {self.path_to_annotation_file.name}")
+        logger.info(
+            f"Parsed {number_of_actions} actions from file {self.path_to_annotation_file.name}"
+        )
 
         return self.action_dict

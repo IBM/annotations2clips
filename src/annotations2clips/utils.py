@@ -9,21 +9,20 @@ from loguru import logger
 
 
 def setup_logger(
-        sink: Union[str, Path],
-        level: Union[int, str] = "DEBUG",
-        rotation: Union[int, str] = "100 MB",
+    sink: Union[str, Path],
+    level: Union[int, str] = "DEBUG",
+    rotation: Union[int, str] = "100 MB",
 ) -> None:
     """Set up logging utilities."""
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     if Path(sink).is_dir():
-            sink = Path(sink, f"annotations2clips_{timestamp}.log")
+        sink = Path(sink, f"annotations2clips_{timestamp}.log")
     elif Path(sink).is_file():
-            sink = sink
+        sink = sink
     else:
         sink = f"annotations2clips_{timestamp}.log"
-        
 
     logger.remove()
     logger.add(sys.stderr, format="{time} | {level} | {message}")
@@ -31,12 +30,8 @@ def setup_logger(
 
     return None
 
-def construct_video_filename(
-    uid: str,
-    action: str,
-    action_index: int,
-    chunk_index: int
-    ) -> str:
+
+def construct_video_filename(uid: str, action: str, action_index: int, chunk_index: int) -> str:
     """Construct a video filename given a set of arguments.
 
     Args:
@@ -49,18 +44,16 @@ def construct_video_filename(
         The filename as a string.
     """
 
-    filename=f"{uid}_{action}_{action_index:03}_{chunk_index:03}.mp4"
+    filename = f"{uid}_{action}_{action_index:03}_{chunk_index:03}.mp4"
 
     return filename
 
+
 def construct_preserved_output_path(
-        root: Path,
-        input_file: Path,
-        output_folder: Path,
-        output_file: str
-    ) -> Path:
+    root: Path, input_file: Path, output_folder: Path, output_file: str
+) -> Path:
     """Construct a path preserving the original folder structure.
-    
+
     Args:
         root (Path): The root data folder containing all source videos.
         file (Path): The path to the video file being processed.
