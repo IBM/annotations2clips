@@ -69,5 +69,6 @@ dmypy.json
 .DS_Store
 
 # output files
+*.log
 output
 tests/output

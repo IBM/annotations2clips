@@ -10,12 +10,12 @@ def test_extract_annotations() -> None:
 
     path_to_annotation_file = Path(
         "tests", "test_data", "station_1", "user_2", "573ce385-0f6f-4c6b-8730-8130424f7c6f.json"
-        )
-    annotation_reader = AnnotationReader(
-        path_to_annotation_file=path_to_annotation_file
     )
+    annotation_reader = AnnotationReader(path_to_annotation_file=path_to_annotation_file)
     annotations = annotation_reader.extract_annotations()
-    total_number_of_actions = len([event for action in annotations for event in annotations[action]])
+    total_number_of_actions = len([
+        event for action in annotations for event in annotations[action]
+    ])
 
     assert list(annotations.keys()) == ["grey", "white", "red", "violet", "green", "blue"]
     assert annotations["grey"] == [(0, 49.695), (225.365, 259.365), (271.375, 368.365)]
