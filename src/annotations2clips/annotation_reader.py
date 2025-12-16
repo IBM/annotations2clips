@@ -54,12 +54,12 @@ class AnnotationReader:
                 _t_start = entry["z"][0]
                 _t_end = entry["z"][1]
 
-            if _action in self.action_dict:
-                self.action_dict[_action].append((_t_start, _t_end))
-            else:
-                self.action_dict[_action] = [(_t_start, _t_end)]
+                if _action in self.action_dict:
+                    self.action_dict[_action].append((_t_start, _t_end))
+                else:
+                    self.action_dict[_action] = [(_t_start, _t_end)]
 
-            number_of_actions += 1
+                number_of_actions += 1
 
         logger.info(
             f"Parsed {number_of_actions} actions from file {self.path_to_annotation_file.name}"
