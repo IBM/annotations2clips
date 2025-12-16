@@ -1,5 +1,6 @@
 """Define the video processor class and methods."""
 
+import hashlib
 import json
 from math import floor
 from pathlib import Path
@@ -77,6 +78,23 @@ class VideoProcessor:
 
         return (is_valid, return_dict)
 
+    @staticmethod
+    def create_file_hash(json_file: Path) -> str:
+        """
+        Create a unique hash for a file.
+
+        Args:
+            json_file (Path): Path to a JSON file.
+
+        Returns:
+            A 16-character string representing the unique hash of the file.
+        """
+
+        with Path(json_file).open("rb") as f:
+            file_hash = hashlib.file_digest(f, "sha256").hexdigest()[:16]
+
+        return file_hash
+
     def discover_files(self) -> None:
         """
         Discover video and annotation files within the root data path.
@@ -99,7 +117,8 @@ class VideoProcessor:
                 if item.suffix == ".json":
                     valid_annotation = self.check_valid_annotation_file(item)
                     if valid_annotation[0]:
-                        uid = valid_annotation[1]["project"]["pid"]
+                        logger.info(f"Discovered valid annotation file {item}")
+                        uid = self.create_file_hash(item)
                         video_file_name = valid_annotation[1]["file"]["1"]["fname"]
                         if Path(item.parent, item.stem).is_dir():
                             video_path = Path(item.parent, item.stem, video_file_name)
