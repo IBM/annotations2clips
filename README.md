@@ -41,7 +41,7 @@ In the project root folder, run the script:
 ```bash
 uv run convert_annotations_to_clips \
     --data_path "tests/test_data" \
-    --output_path "output/clips" \
+    --output_path "output" \
     --preserve_folder_structure false \
     --clip_length 4.0 \
     --clip_fps 4

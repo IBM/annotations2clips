@@ -142,5 +142,3 @@ def test_create_clips_and_metadata_file_creation(video_processor) -> None:
         mapping_dict["e89d7c6e33e5a806"]
         == "tests/test_data/station_1/user_2/573ce385-0f6f-4c6b-8730-8130424f7c6f"
     )
-
-    output_path

@@ -27,8 +27,8 @@ class VideoProcessorSettings(BaseSettings):
         codec (string): A four-character code defining the video codec to use.
     """
 
-    data_path: Path
-    output_path: Path
+    data_path: Path = "tests/test_data"
+    output_path: Path = "output"
     preserve_folder_structure: bool = False
     clip_length: float = 4.0
     clip_fps: int = 4
