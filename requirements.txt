@@ -54,5 +54,5 @@ types-setuptools==80.9.0.20250822
 types-tqdm==4.67.0.20250809
 typing-extensions==4.15.0
 typing-inspection==0.4.2
-urllib3==2.5.0
+urllib3==2.6.0
 virtualenv==20.35.4
