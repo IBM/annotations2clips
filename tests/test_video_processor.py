@@ -120,12 +120,12 @@ def test_create_clips_and_metadata_file_creation(video_processor) -> None:
 
     assert num_clips == 144
     assert jsonl_lines[0] == [
-        '{"image:":"573ce385-0f6f-4c6b-8730-8130424f7c6f_blue_000_000.mp4"',
+        '{"image:":"245ac5779079b967_blue_000_000.mp4"',
         'label:"blue"}',
     ]
     assert jsonl_lines[-1] == [
-        '{"image:":"fef69bac-bc6d-47c7-8c8a-bd56ffa0c851_yellow_000_001.mp4"',
-        'label:"yellow"}',
+        '{"image:":"e89d7c6e33e5a806_white_002_005.mp4"',
+        'label:"white"}',
     ]
     assert stats_dict == {
         "blue": 4,
@@ -139,7 +139,7 @@ def test_create_clips_and_metadata_file_creation(video_processor) -> None:
         "yellow": 2,
     }
     assert (
-        mapping_dict["573ce385-0f6f-4c6b-8730-8130424f7c6f"]
+        mapping_dict["e89d7c6e33e5a806"]
         == "tests/test_data/station_1/user_2/573ce385-0f6f-4c6b-8730-8130424f7c6f"
     )
 
